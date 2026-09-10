@@ -150,7 +150,7 @@ export function Metrics() {
         {metrics.map((m, i) => (
           <Reveal key={m.label} delay={i * 90} className="text-center lg:text-left">
             <p className="font-display text-[clamp(2.5rem,6vw,4rem)] leading-none font-semibold text-background">
-              <Counter value={m.value} prefix={m.prefix} suffix={m.suffix} />
+              <Counter value={m.value} prefix={m.prefix ?? ""} suffix={m.suffix ?? ""} />
             </p>
             <p className="mt-3 text-[13px] tracking-wide text-background/70">{m.label}</p>
           </Reveal>
