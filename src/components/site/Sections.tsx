@@ -54,7 +54,10 @@ export function Section({
     <section
       id={id}
       aria-label={label}
-      className={cn("scroll-mt-24 border-t border-border py-20 sm:py-24 lg:py-28", className)}
+      className={cn(
+        "section-fade scroll-mt-24 border-t border-border py-20 sm:py-24 lg:py-28",
+        className,
+      )}
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">{children}</div>
     </section>
@@ -110,25 +113,36 @@ export function About() {
 export function Journey() {
   return (
     <Section id="journey" label="Career journey" className="bg-secondary/40">
-      <SectionHeading eyebrow="Timeline" title="Career Journey" />
-      <ol className="relative mt-14 grid gap-6 lg:grid-cols-5">
+      <SectionHeading
+        eyebrow="Timeline"
+        title="Career Journey"
+        subtitle="From aerospace and defence engineering to leading AI-powered product at scale."
+      />
+      <ol className="relative mt-14 grid gap-8 lg:grid-cols-5 lg:gap-5">
         <span
           aria-hidden="true"
-          className="absolute top-4 left-2 hidden h-px w-full bg-border lg:block"
+          className="absolute top-[7px] left-0 hidden h-px w-full bg-gradient-to-r from-border via-primary/40 to-border lg:block"
         />
         {journey.map((j, i) => (
-          <Reveal as="li" key={j.org} delay={i * 110} className="relative pl-7 lg:pt-12 lg:pl-0">
+          <Reveal
+            as="li"
+            key={j.org}
+            delay={i * 110}
+            className="group relative pl-8 lg:pt-9 lg:pl-0"
+          >
             <span
               aria-hidden="true"
-              className="absolute top-1.5 left-0 size-3 rounded-full bg-[image:var(--gradient-accent)] ring-4 ring-background lg:top-2.5 lg:left-0"
+              className="absolute top-1.5 left-0 size-3.5 rounded-full border-2 border-background bg-[image:var(--gradient-accent)] shadow-[0_0_0_4px_color-mix(in_oklab,var(--primary)_14%,transparent)] transition-transform duration-300 group-hover:scale-125 lg:top-0"
             />
             <span
               aria-hidden="true"
-              className="absolute top-4 bottom-0 left-[5px] w-px bg-border lg:hidden"
+              className="absolute top-5 bottom-[-1.5rem] left-[6px] w-px bg-border last:hidden lg:hidden"
             />
-            <p className="font-display text-lg font-semibold">{j.org}</p>
-            <p className="mt-1 text-sm font-medium text-primary">{j.role}</p>
-            <p className="mt-1.5 pb-6 text-sm text-muted-foreground lg:pb-0">{j.note}</p>
+            <div className="surface-card h-full p-5">
+              <p className="font-display text-lg font-semibold">{j.org}</p>
+              <p className="mt-1 text-sm font-medium text-primary">{j.role}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{j.note}</p>
+            </div>
           </Reveal>
         ))}
       </ol>
