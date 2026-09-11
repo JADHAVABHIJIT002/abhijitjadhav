@@ -113,12 +113,14 @@ export function Projects() {
                 type="button"
                 onClick={() => setOpen(isOpen ? null : p.no)}
                 aria-expanded={isOpen}
-                className="mt-6 inline-flex items-center gap-2 self-start text-sm font-medium text-foreground transition-colors hover:text-primary"
+                className="mt-auto inline-flex items-center gap-2 self-start pt-6 text-sm font-medium text-foreground transition-colors hover:text-primary"
               >
                 {isOpen ? <Minus className="size-4" aria-hidden="true" /> : <Plus className="size-4" aria-hidden="true" />}
                 {isOpen ? "Hide details" : `Show ${p.techLabel.toLowerCase()} & ${p.impactLabel.toLowerCase()}`}
               </button>
+              </Tilt>
             </Reveal>
+
           );
         })}
       </ul>
