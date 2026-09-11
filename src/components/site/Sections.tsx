@@ -97,7 +97,7 @@ export function About() {
       />
       <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {capabilities.map((c, i) => (
-          <Reveal as="li" key={c.title} delay={i * 90} className="surface-card p-6">
+          <Reveal as="li" key={c.title} delay={i * 90} className="surface-card spotlight group p-6">
             <span className="grid size-10 place-items-center rounded-xl bg-accent text-accent-foreground">
               <c.icon className="size-5" aria-hidden="true" />
             </span>

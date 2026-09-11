@@ -367,7 +367,7 @@
       transparent 65%
     );
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
   }
   &:hover::before {
     opacity: 1;
