@@ -1,7 +1,9 @@
 import { Award, GraduationCap, Leaf, Cpu, Radio, Users2, Sprout } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Tilt } from "./Effects";
 import { Section, SectionHeading } from "./Sections";
 import { awards, education, skillGroups } from "./data";
+
 
 export function Skills() {
   return (
@@ -13,21 +15,27 @@ export function Skills() {
       />
       <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {skillGroups.map((g, i) => (
-          <Reveal key={g.title} delay={(i % 3) * 80} className="surface-card p-6">
-            <h3 className="text-base font-semibold">{g.title}</h3>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {g.items.map((s) => (
-                <li
-                  key={s}
-                  className="rounded-full border border-border bg-secondary/70 px-3 py-1.5 text-[12px] font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:bg-accent hover:text-accent-foreground"
-                >
-                  {s}
-                </li>
-              ))}
-            </ul>
+          <Reveal key={g.title} delay={(i % 3) * 80} className="h-full">
+            <Tilt max={4} className="surface-card group h-full p-6">
+              <h3 className="text-base font-semibold transition-colors group-hover:text-primary">
+                {g.title}
+              </h3>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {g.items.map((s, k) => (
+                  <li
+                    key={s}
+                    style={{ transitionDelay: `${k * 18}ms` }}
+                    className="rounded-full border border-border bg-secondary/70 px-3 py-1.5 text-[12px] font-medium text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-accent hover:text-accent-foreground group-hover:border-primary/25"
+                  >
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </Tilt>
           </Reveal>
         ))}
       </div>
+
     </Section>
   );
 }
