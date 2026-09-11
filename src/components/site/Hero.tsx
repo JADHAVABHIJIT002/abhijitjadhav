@@ -17,9 +17,13 @@ export function Hero() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 grid-lines opacity-[0.3] [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]"
+        className="pointer-events-none absolute inset-0 drift-grid opacity-[0.35] [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]"
       />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <ParticleField />
+      </div>
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
+
         <div>
           <Reveal>
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent/70 px-3.5 py-1.5 text-[12px] font-medium tracking-wide text-accent-foreground">
