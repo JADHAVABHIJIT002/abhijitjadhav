@@ -2,8 +2,10 @@ import { useState } from "react";
 import { ArrowUpRight, Minus, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
+import { Tilt } from "./Effects";
 import { Section, SectionHeading } from "./Sections";
 import { caseStudies, projects } from "./data";
+
 
 function Tag({ children }: { children: string }) {
   return (
@@ -26,8 +28,10 @@ export function Projects() {
         {projects.map((p, i) => {
           const isOpen = open === p.no;
           return (
-            <Reveal as="li" key={p.no} delay={(i % 2) * 80} className="surface-card group flex flex-col p-6 sm:p-7">
+            <Reveal as="li" key={p.no} delay={(i % 2) * 80} className="h-full">
+              <Tilt className="surface-card group flex h-full flex-col p-6 sm:p-7">
               <div className="flex items-start justify-between gap-4">
+
                 <div>
                   <p className="text-[11px] font-semibold tracking-[0.2em] text-muted-foreground uppercase">
                     Project {p.no} · {p.category}
@@ -109,12 +113,14 @@ export function Projects() {
                 type="button"
                 onClick={() => setOpen(isOpen ? null : p.no)}
                 aria-expanded={isOpen}
-                className="mt-6 inline-flex items-center gap-2 self-start text-sm font-medium text-foreground transition-colors hover:text-primary"
+                className="mt-auto inline-flex items-center gap-2 self-start pt-6 text-sm font-medium text-foreground transition-colors hover:text-primary"
               >
                 {isOpen ? <Minus className="size-4" aria-hidden="true" /> : <Plus className="size-4" aria-hidden="true" />}
                 {isOpen ? "Hide details" : `Show ${p.techLabel.toLowerCase()} & ${p.impactLabel.toLowerCase()}`}
               </button>
+              </Tilt>
             </Reveal>
+
           );
         })}
       </ul>

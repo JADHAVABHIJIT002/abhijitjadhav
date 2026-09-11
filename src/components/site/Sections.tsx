@@ -97,7 +97,7 @@ export function About() {
       />
       <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {capabilities.map((c, i) => (
-          <Reveal as="li" key={c.title} delay={i * 90} className="surface-card p-6">
+          <Reveal as="li" key={c.title} delay={i * 90} className="surface-card spotlight group p-6">
             <span className="grid size-10 place-items-center rounded-xl bg-accent text-accent-foreground">
               <c.icon className="size-5" aria-hidden="true" />
             </span>
@@ -159,20 +159,28 @@ const metrics = [
 
 export function Metrics() {
   return (
-    <section aria-label="Impact metrics" className="border-t border-border bg-foreground py-16 sm:py-20">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
+    <section
+      aria-label="Impact metrics"
+      className="relative overflow-hidden border-y border-border bg-secondary/50 py-16 sm:py-20"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 drift-grid opacity-25 [mask-image:linear-gradient(to_bottom,transparent,black,transparent)]"
+      />
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
         {metrics.map((m, i) => (
           <Reveal key={m.label} delay={i * 90} className="text-center lg:text-left">
-            <p className="font-display text-[clamp(2.5rem,6vw,4rem)] leading-none font-semibold text-background">
+            <p className="font-display text-[clamp(2.5rem,6vw,4rem)] leading-none font-semibold text-gradient">
               <Counter value={m.value} prefix={m.prefix ?? ""} suffix={m.suffix ?? ""} />
             </p>
-            <p className="mt-3 text-[13px] tracking-wide text-background/70">{m.label}</p>
+            <p className="mt-3 text-[13px] tracking-wide text-muted-foreground">{m.label}</p>
           </Reveal>
         ))}
       </div>
     </section>
   );
 }
+
 
 export function Experience() {
   const [open, setOpen] = useState<number | null>(0);
