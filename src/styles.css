@@ -367,10 +367,14 @@
       transparent 65%
     );
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
   }
   &:hover::before {
     opacity: 1;
+  }
+  & > * {
+    position: relative;
+    z-index: 1;
   }
 }
 

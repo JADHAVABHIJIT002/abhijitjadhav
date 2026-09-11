@@ -2,8 +2,10 @@ import { useState } from "react";
 import { ArrowUpRight, Minus, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
+import { Tilt } from "./Effects";
 import { Section, SectionHeading } from "./Sections";
 import { caseStudies, projects } from "./data";
+
 
 function Tag({ children }: { children: string }) {
   return (
