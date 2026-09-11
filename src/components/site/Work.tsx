@@ -28,8 +28,10 @@ export function Projects() {
         {projects.map((p, i) => {
           const isOpen = open === p.no;
           return (
-            <Reveal as="li" key={p.no} delay={(i % 2) * 80} className="surface-card group flex flex-col p-6 sm:p-7">
+            <Reveal as="li" key={p.no} delay={(i % 2) * 80} className="h-full">
+              <Tilt className="surface-card group flex h-full flex-col p-6 sm:p-7">
               <div className="flex items-start justify-between gap-4">
+
                 <div>
                   <p className="text-[11px] font-semibold tracking-[0.2em] text-muted-foreground uppercase">
                     Project {p.no} · {p.category}
