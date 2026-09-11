@@ -1,7 +1,9 @@
 import { ArrowDown, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { ParticleField } from "./Effects";
 import { LINKS, RESUME_URL } from "./data";
 import portrait from "@/assets/abhijit-jadhav.png.asset.json";
+
 
 const pillars = [
   { k: "Product", v: "Discovery → PRD → Launch" },
@@ -124,25 +126,27 @@ export function Hero() {
         <Reveal delay={180} className="relative mx-auto w-full max-w-sm lg:max-w-none">
           <div
             aria-hidden="true"
-            className="absolute -inset-6 -z-10 rounded-[3rem] bg-[image:var(--gradient-accent)] opacity-[0.14] blur-2xl"
+            className="float-soft absolute -inset-8 -z-10 rounded-[3.5rem] bg-[image:var(--gradient-accent)] opacity-25 blur-3xl"
           />
-          <figure className="relative overflow-hidden rounded-[2rem] border border-border bg-surface shadow-[var(--shadow-lift)]">
+          <figure className="group relative overflow-hidden rounded-[2rem] border border-border/80 glass-panel shadow-[var(--shadow-lift)] transition-transform duration-500 hover:-translate-y-1">
             <div className="relative aspect-[4/5] overflow-hidden">
+
               <img
                 src={portrait.url}
                 alt="Portrait of Abhijit Jadhav, Product Manager and AI specialist"
                 width={512}
                 height={512}
-                className="size-full object-cover object-top"
+                className="size-full scale-[1.02] object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.07]"
               />
               <div
                 aria-hidden="true"
-                className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-foreground/75 to-transparent"
+                className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent"
               />
-              <figcaption className="absolute inset-x-0 bottom-0 p-6 text-background">
-                <p className="text-[10px] font-semibold tracking-[0.22em] uppercase opacity-85">
+              <figcaption className="absolute inset-x-0 bottom-0 p-6 text-foreground">
+                <p className="text-[10px] font-semibold tracking-[0.22em] text-primary uppercase">
                   Product · AI · Data
                 </p>
+
                 <p className="mt-1.5 font-display text-lg font-semibold">Abhijit Jadhav</p>
               </figcaption>
             </div>
