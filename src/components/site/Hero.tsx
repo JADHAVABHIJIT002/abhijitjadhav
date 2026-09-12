@@ -123,9 +123,9 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={180} className="relative mx-auto w-full max-w-[30rem] lg:max-w-none">
+        <Reveal delay={180} className="relative order-first mx-auto w-full max-w-[30rem] lg:order-none lg:max-w-none">
           <figure className="portrait-stage group mx-auto flex w-full flex-col items-center">
-            <div className="portrait-orbit relative grid aspect-square w-[min(78vw,27rem)] place-items-center lg:w-[min(37vw,31rem)]">
+            <div className="portrait-orbit relative grid aspect-square w-[min(72vw,17.5rem)] place-items-center sm:w-[min(68vw,22rem)] lg:w-[min(37vw,31rem)]">
               <div aria-hidden="true" className="portrait-aura absolute inset-[12%] rounded-full" />
               <div aria-hidden="true" className="portrait-ring portrait-ring-outer absolute inset-[1.5%] rounded-full">
                 <span className="portrait-orb portrait-orb-primary" />
