@@ -123,40 +123,50 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={180} className="relative mx-auto w-full max-w-sm lg:max-w-none">
-          <div
-            aria-hidden="true"
-            className="float-soft absolute -inset-8 -z-10 rounded-[3.5rem] bg-[image:var(--gradient-accent)] opacity-25 blur-3xl"
-          />
-          <figure className="group relative overflow-hidden rounded-[2rem] border border-border/80 glass-panel shadow-[var(--shadow-lift)] transition-transform duration-500 hover:-translate-y-1">
-            <div className="relative aspect-[4/5] overflow-hidden">
+        <Reveal delay={180} className="relative order-first mx-auto w-full max-w-[30rem] lg:order-none lg:max-w-none">
+          <figure className="portrait-stage group mx-auto flex w-full flex-col items-center">
+            <div className="portrait-orbit relative grid aspect-square w-[min(72vw,17.5rem)] place-items-center sm:w-[min(68vw,22rem)] lg:w-[min(37vw,31rem)]">
+              <div aria-hidden="true" className="portrait-aura absolute inset-[12%] rounded-full" />
+              <div aria-hidden="true" className="portrait-ring portrait-ring-outer absolute inset-[1.5%] rounded-full">
+                <span className="portrait-orb portrait-orb-primary" />
+              </div>
+              <div aria-hidden="true" className="portrait-ring portrait-ring-middle absolute inset-[7%] rounded-full">
+                <span className="portrait-orb portrait-orb-secondary" />
+              </div>
+              <div aria-hidden="true" className="portrait-ring portrait-ring-inner absolute inset-[12.5%] rounded-full" />
 
-              <img
-                src={portrait.url}
-                alt="Portrait of Abhijit Jadhav, Product Manager and AI specialist"
-                width={512}
-                height={512}
-                className="size-full scale-[1.02] object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.07]"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 p-6 text-foreground">
-                <p className="text-[10px] font-semibold tracking-[0.22em] text-primary uppercase">
-                  Product · AI · Data
-                </p>
+              <span aria-hidden="true" className="portrait-spark portrait-spark-one" />
+              <span aria-hidden="true" className="portrait-spark portrait-spark-two" />
+              <span aria-hidden="true" className="portrait-spark portrait-spark-three" />
+              <span aria-hidden="true" className="portrait-spark portrait-spark-four" />
 
-                <p className="mt-1.5 font-display text-lg font-semibold">Abhijit Jadhav</p>
-              </figcaption>
+              <div className="portrait-frame relative z-10 aspect-square w-[70%] overflow-hidden rounded-full border border-primary/35 bg-surface p-1.5 shadow-[var(--shadow-lift)]">
+                <div className="size-full overflow-hidden rounded-full bg-secondary">
+                  <img
+                    src={portrait.url}
+                    alt="Portrait of Abhijit Jadhav, Product Manager and AI specialist"
+                    width={512}
+                    height={512}
+                    className="portrait-image size-full object-cover object-top"
+                  />
+                </div>
+              </div>
             </div>
-            <dl className="grid grid-cols-3 divide-x divide-border border-t border-border">
+
+            <figcaption className="relative z-20 -mt-2 text-center">
+              <p className="text-[10px] font-semibold tracking-[0.22em] text-primary uppercase">
+                Product · AI · Data
+              </p>
+              <p className="mt-1.5 font-display text-lg font-semibold">Abhijit Jadhav</p>
+            </figcaption>
+
+            <dl className="mt-6 grid w-full max-w-md grid-cols-3 divide-x divide-border border-y border-border/80 bg-surface/45 backdrop-blur-sm">
               {[
                 ["48", "Team led"],
                 ["₹6 Cr", "Revenue"],
                 ["4+", "Industries"],
               ].map(([v, l]) => (
-                <div key={l} className="px-2 py-4 text-center">
+                <div key={l} className="px-2 py-3.5 text-center sm:py-4">
                   <dt className="font-display text-base font-semibold sm:text-lg">{v}</dt>
                   <dd className="mt-0.5 text-[11px] text-muted-foreground">{l}</dd>
                 </div>
