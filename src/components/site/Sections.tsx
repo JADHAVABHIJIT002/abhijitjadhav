@@ -118,28 +118,31 @@ export function Journey() {
         title="Career Journey"
         subtitle="From aerospace and defence engineering to leading AI-powered product at scale."
       />
-      <ol className="relative mt-14 grid gap-8 lg:grid-cols-5 lg:gap-5">
+      <ol className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5 xl:grid-cols-6">
         <span
           aria-hidden="true"
-          className="absolute top-[7px] left-0 hidden h-px w-full bg-gradient-to-r from-border via-primary/40 to-border lg:block"
+          className="absolute top-[7px] left-0 hidden h-px w-full bg-gradient-to-r from-border via-primary/40 to-border xl:block"
         />
         {journey.map((j, i) => (
           <Reveal
             as="li"
-            key={j.org}
+            key={`${j.org}-${j.role}`}
             delay={i * 110}
-            className="group relative pl-8 lg:pt-9 lg:pl-0"
+            className="group relative pl-8 xl:pt-9 xl:pl-0"
           >
             <span
               aria-hidden="true"
-              className="absolute top-1.5 left-0 size-3.5 rounded-full border-2 border-background bg-[image:var(--gradient-accent)] shadow-[0_0_0_4px_color-mix(in_oklab,var(--primary)_14%,transparent)] transition-transform duration-300 group-hover:scale-125 lg:top-0"
+              className="absolute top-1.5 left-0 size-3.5 rounded-full border-2 border-background bg-[image:var(--gradient-accent)] shadow-[0_0_0_4px_color-mix(in_oklab,var(--primary)_14%,transparent)] transition-transform duration-300 group-hover:scale-125 xl:top-0"
             />
             <span
               aria-hidden="true"
-              className="absolute top-5 bottom-[-1.5rem] left-[6px] w-px bg-border last:hidden lg:hidden"
+              className="absolute top-5 bottom-[-1.5rem] left-[6px] w-px bg-border last:hidden xl:hidden"
             />
             <div className="surface-card h-full p-5">
-              <p className="font-display text-lg font-semibold">{j.org}</p>
+              <p className="text-[10px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+                {j.dates}
+              </p>
+              <p className="mt-1.5 font-display text-lg font-semibold">{j.org}</p>
               <p className="mt-1 text-sm font-medium text-primary">{j.role}</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{j.note}</p>
             </div>

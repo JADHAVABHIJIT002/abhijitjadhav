@@ -69,11 +69,42 @@ export const experience = [
 ];
 
 export const journey = [
-  { org: "HAL", role: "Intern", note: "Aerospace systems & engineering rigor" },
-  { org: "DRDO", role: "Junior Scientist", note: "Defence R&D, mission-critical systems" },
-  { org: "Cognizant", role: "Developer & Analyst", note: "Enterprise IT, business analysis" },
-  { org: "Duroflex", role: "Associate Product Manager", note: "Consumer products, full lifecycle" },
-  { org: "Masai", role: "Manager – Product Management", note: "AI/ML, GenAI, LMS at scale" },
+  {
+    org: "HAL",
+    role: "Aeronautical Engineer — Internship",
+    note: "Aerospace systems & engineering rigor",
+    dates: "Jul 2020 – Apr 2021",
+  },
+  {
+    org: "DRDO",
+    role: "Junior Scientist",
+    note: "Defence R&D, mission-critical systems",
+    dates: "Jul 2021 – Jun 2022",
+  },
+  {
+    org: "Cognizant",
+    role: "Software Engineer",
+    note: "Full-stack development & delivery",
+    dates: "Jul 2022 – Sep 2022",
+  },
+  {
+    org: "Cognizant",
+    role: "Business Analyst",
+    note: "Enterprise IT, stakeholder requirements",
+    dates: "Sep 2022 – Jun 2023",
+  },
+  {
+    org: "Duroflex",
+    role: "Assistant Manager – Sales Operations",
+    note: "Sales operations & processes",
+    dates: "Jul 2023 – Jul 2024",
+  },
+  {
+    org: "Masai",
+    role: "Manager – Product Management",
+    note: "AI/ML, GenAI, LMS at scale",
+    dates: "Aug 2024 – Present",
+  },
 ];
 
 export type Project = {
