@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import { Section, SectionHeading } from "./Sections";
 import { LINKS, RESUME_URL } from "./data";
+import logo from "@/assets/abhijit-logo.png.asset.json";
 
 type Errors = Partial<Record<"name" | "email" | "subject" | "message", string>>;
 
@@ -209,8 +210,23 @@ export function Contact() {
 export function Footer() {
   return (
     <footer className="border-t border-border bg-secondary/40 py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 sm:px-8 md:flex-row">
-        <p className="text-sm text-muted-foreground">© 2026 Abhijit Jadhav. All rights reserved.</p>
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-7 px-5 sm:px-8 md:flex-row">
+        <a href="#top" className="group flex items-center gap-3" aria-label="Abhijit Jadhav — back to top">
+          <span className="brand-mark-shell size-14 shrink-0">
+            <img
+              src={logo.url}
+              alt="Abhijit Jadhav logo"
+              width={56}
+              height={56}
+              loading="lazy"
+              className="size-full rounded-full object-cover"
+            />
+          </span>
+          <span>
+            <span className="block font-display text-sm font-semibold">Abhijit Jadhav</span>
+            <span className="mt-0.5 block text-[11px] text-muted-foreground">Product · AI · Business Impact</span>
+          </span>
+        </a>
         <nav aria-label="Footer" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
           <a href="#about" className="text-sm text-muted-foreground transition-colors hover:text-primary">
             About
@@ -250,6 +266,9 @@ export function Footer() {
           Back to top
         </button>
       </div>
+      <p className="mx-auto mt-7 max-w-7xl px-5 text-center text-xs text-muted-foreground sm:px-8">
+        © 2026 Abhijit Jadhav. All rights reserved.
+      </p>
     </footer>
   );
 }
