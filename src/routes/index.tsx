@@ -52,6 +52,12 @@ export const Route = createFileRoute("/")({
               description: DESCRIPTION,
               email: "mailto:jadhavabhijeet002@gmail.com",
               worksFor: { "@type": "Organization", name: "Masai School" },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Bengaluru",
+                addressRegion: "Karnataka",
+                addressCountry: "IN",
+              },
               sameAs: [
                 "https://www.linkedin.com/in/abhijit-jadhav-133833227",
                 "https://github.com/JADHAVABHIJIT002",

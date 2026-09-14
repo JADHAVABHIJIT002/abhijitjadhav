@@ -68,11 +68,16 @@ export function Counter({
   duration?: number;
 }) {
   const { ref, visible } = useInView<HTMLSpanElement>();
-  const [display, setDisplay] = useState(0);
+  // Start at the real value: crawlers and pre-hydration users must see the
+  // actual number, not 0. The count-up below is a decorative reveal that
+  // only runs client-side once the element scrolls into view.
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (!visible) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let frame = 0;
+    setDisplay(0);
     const start = performance.now();
     const tick = (now: number) => {
       const p = Math.min((now - start) / duration, 1);
