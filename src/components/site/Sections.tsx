@@ -93,7 +93,7 @@ export function About() {
       <SectionHeading
         eyebrow="About"
         title="About Me"
-        subtitle="I'm a Product Manager who operates at the intersection of product, data and AI. I identify problems, understand users, apply AI and technology, ship products and measure outcomes — turning complex business challenges into scalable, user-centric solutions."
+        subtitle="I'm Abhijit Jadhav, a Product Manager who operates at the intersection of product, data and AI. I identify problems, understand users, apply AI and technology, ship products and measure outcomes — turning complex business challenges into scalable, user-centric solutions."
       />
       <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {capabilities.map((c, i) => (
@@ -167,6 +167,7 @@ export function Metrics() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 drift-grid opacity-25 [mask-image:linear-gradient(to_bottom,transparent,black,transparent)]"
       />
+      <h2 className="sr-only">Impact Metrics</h2>
       <div className="relative mx-auto grid max-w-7xl gap-10 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
         {metrics.map((m, i) => (
           <Reveal key={m.label} delay={i * 90} className="text-center lg:text-left">
