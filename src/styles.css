@@ -296,6 +296,39 @@
   -webkit-backdrop-filter: saturate(180%) blur(14px);
 }
 
+@utility brand-mark-shell {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 9999px;
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--primary) 42%, transparent),
+    0 0 22px color-mix(in oklab, var(--primary) 16%, transparent);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border: 1px solid color-mix(in oklab, var(--primary) 28%, transparent);
+    border-radius: inherit;
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .group:hover & {
+    transform: translateY(-1px) scale(1.04);
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--primary) 65%, transparent),
+      0 0 28px color-mix(in oklab, var(--primary) 28%, transparent);
+  }
+  .group:hover &::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @utility text-gradient {
   background: var(--gradient-accent);
   -webkit-background-clip: text;

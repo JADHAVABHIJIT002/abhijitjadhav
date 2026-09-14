@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/abhijit-logo.png.asset.json";
 
 const links = [
   { id: "about", label: "About" },
@@ -60,11 +61,17 @@ export function Nav() {
         aria-label="Primary"
         className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5 sm:px-8 lg:h-[4.5rem]"
       >
-        <a href="#top" className="group flex items-center gap-2.5" aria-label="Abhijit Jadhav — home">
-          <span className="grid size-8 place-items-center rounded-lg bg-[image:var(--gradient-accent)] text-[13px] font-semibold text-primary-foreground">
-            AJ
+        <a href="#top" className="group flex items-center gap-3" aria-label="Abhijit Jadhav — home">
+          <span className="brand-mark-shell size-11 shrink-0">
+            <img
+              src={logo.url}
+              alt=""
+              width={44}
+              height={44}
+              className="size-full rounded-full object-cover"
+            />
           </span>
-          <span className="font-display text-sm font-semibold tracking-tight">Abhijit Jadhav</span>
+          <span className="hidden font-display text-sm font-semibold sm:inline">Abhijit Jadhav</span>
         </a>
 
         <ul className="hidden items-center gap-1 lg:flex">
