@@ -924,3 +924,7 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+```
+Commit and push to main
+```

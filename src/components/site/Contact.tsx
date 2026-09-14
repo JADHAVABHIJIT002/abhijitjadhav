@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { ArrowUp, CheckCircle2, Download, Github, Linkedin, Mail, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { sendContactMessage } from "@/lib/contact";
 import { Reveal } from "./Reveal";
 import { Section, SectionHeading } from "./Sections";
 import { LINKS, RESUME_URL } from "./data";
@@ -9,16 +11,25 @@ import logo from "@/assets/abhijit-logo.png.asset.json";
 type Errors = Partial<Record<"name" | "email" | "subject" | "message", string>>;
 
 export function Contact() {
-  const [values, setValues] = useState({ name: "", email: "", subject: "", message: "" });
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    company: "",
+  });
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const sendContactMessageFn = useServerFn(sendContactMessage);
 
   const set = (key: keyof typeof values) => (e: { target: { value: string } }) => {
     setValues((v) => ({ ...v, [key]: e.target.value }));
     setErrors((prev) => ({ ...prev, [key]: undefined }));
   };
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const next: Errors = {};
     if (values.name.trim().length < 2) next.name = "Please enter your name.";
@@ -29,12 +40,20 @@ export function Contact() {
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
-    const body = `${values.message}\n\n— ${values.name} (${values.email})`;
-    window.location.href = `mailto:${LINKS.email}?subject=${encodeURIComponent(
-      values.subject,
-    )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
-    setValues({ name: "", email: "", subject: "", message: "" });
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      await sendContactMessageFn({ data: values });
+      setSent(true);
+      setValues({ name: "", email: "", subject: "", message: "", company: "" });
+    } catch (error) {
+      console.error(error);
+      setSubmitError(
+        "Something went wrong sending your message. Please try again, or email me directly.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const field =
@@ -90,9 +109,9 @@ export function Contact() {
           {sent ? (
             <div className="flex h-full min-h-[24rem] flex-col items-center justify-center text-center">
               <CheckCircle2 className="size-12 text-primary" aria-hidden="true" />
-              <h3 className="mt-5 font-display text-xl font-semibold">Message ready to send</h3>
+              <h3 className="mt-5 font-display text-xl font-semibold">Message sent</h3>
               <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                Your email client has opened with the message. If it didn't, write to{" "}
+                Thanks for reaching out — I'll get back to you soon. You can also write to{" "}
                 <a className="text-primary underline" href={`mailto:${LINKS.email}`}>
                   {LINKS.email}
                 </a>
@@ -192,12 +211,35 @@ export function Contact() {
                   </p>
                 ) : null}
               </div>
+
+              {/* Honeypot: hidden from real visitors, bots that auto-fill every
+                  field trip it and their submission is silently dropped server-side. */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="company">Company</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={values.company}
+                  onChange={set("company")}
+                />
+              </div>
+
+              {submitError ? (
+                <p role="alert" className="mt-5 text-sm text-destructive">
+                  {submitError}
+                </p>
+              ) : null}
+
               <button
                 type="submit"
-                className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-colors hover:bg-primary sm:w-auto"
+                disabled={submitting}
+                className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-colors hover:bg-primary disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
                 <Send className="size-4" aria-hidden="true" />
-                Send Message
+                {submitting ? "Sending…" : "Send Message"}
               </button>
             </form>
           )}
