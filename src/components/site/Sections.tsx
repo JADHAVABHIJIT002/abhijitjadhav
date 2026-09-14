@@ -213,7 +213,7 @@ export function Experience() {
                       ) : null}
                     </span>
                     <span className="mt-1.5 block text-sm text-muted-foreground">
-                      {e.company} — {e.location}
+                      {e.company} — {e.location} · {e.dates}
                     </span>
                   </span>
                   <ChevronDown

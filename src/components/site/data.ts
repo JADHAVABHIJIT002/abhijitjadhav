@@ -12,6 +12,7 @@ export const experience = [
     role: "Manager – Product Management | AI/ML & Generative AI",
     company: "Masai School",
     location: "Bengaluru, India",
+    dates: "Aug 2024 – Present",
     current: true,
     points: [
       "Leading 5 major LMS product initiatives focused on transforming user experience, resulting in improved engagement and learning outcomes.",
@@ -23,31 +24,42 @@ export const experience = [
     ],
   },
   {
-    role: "Associate Product Manager",
+    role: "Assistant Manager – Sales Operations",
     company: "Duroflex",
     location: "Bengaluru, India",
+    dates: "Jul 2023 – Jul 2024",
     points: [
-      "Supported the end-to-end product lifecycle from ideation to launch.",
-      "Collaborated with design, engineering and marketing teams.",
-      "Used data-driven decision making for roadmap and GTM activities.",
-      "Conducted user research and created feedback loops.",
+      "Supported sales operations processes across a consumer products business.",
+      "Coordinated with sales, operations and business teams to keep processes running smoothly.",
+      "Used data and reporting to track performance and support decision-making.",
+      "Maintained operational documentation and cross-team communication.",
     ],
   },
   {
-    role: "MERN Stack Developer & Business Analyst",
+    role: "Business Analyst",
     company: "Cognizant",
     location: "India",
+    dates: "Sep 2022 – Jun 2023",
+    points: [
+      "Converted stakeholder requirements into technical solutions.",
+      "Bridged technical and business teams.",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    company: "Cognizant",
+    location: "India",
+    dates: "Jul 2022 – Sep 2022",
     points: [
       "Built full-stack MERN applications.",
-      "Converted stakeholder requirements into technical solutions.",
       "Worked within Agile delivery processes and QA cycles.",
-      "Bridged technical and business teams.",
     ],
   },
   {
     role: "Junior Scientist",
     company: "DRDO",
     location: "India",
+    dates: "Jul 2021 – Jun 2022",
     points: [
       "Worked on research and defence projects in a high-security environment.",
       "Applied analytical thinking and structured problem solving.",
@@ -56,9 +68,10 @@ export const experience = [
     ],
   },
   {
-    role: "Intern",
+    role: "Aeronautical Engineer — Internship",
     company: "HAL",
     location: "India",
+    dates: "Jul 2020 – Apr 2021",
     points: [
       "Worked with aerospace systems and engineering processes.",
       "Created and maintained technical documentation.",
