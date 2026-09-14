@@ -2,6 +2,7 @@ export const LINKS = {
   linkedin: "https://www.linkedin.com/in/abhijit-jadhav-133833227",
   github: "https://github.com/JADHAVABHIJIT002",
   email: "jadhavabhijeet002@gmail.com",
+  phone: "+91 87667 27652",
 };
 
 export const RESUME_URL = "/abhijit-jadhav-resume.html";

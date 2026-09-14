@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { ArrowUp, CheckCircle2, Download, Github, Linkedin, Mail, Send } from "lucide-react";
+import { ArrowUp, CheckCircle2, Download, Github, Linkedin, Mail, Phone, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import { Section, SectionHeading } from "./Sections";
@@ -55,6 +55,7 @@ export function Contact() {
                 { icon: Linkedin, label: "LinkedIn", value: "in/abhijit-jadhav-133833227", href: LINKS.linkedin },
                 { icon: Github, label: "GitHub", value: "JADHAVABHIJIT002", href: LINKS.github },
                 { icon: Mail, label: "Email", value: LINKS.email, href: `mailto:${LINKS.email}` },
+                { icon: Phone, label: "Phone", value: LINKS.phone, href: "tel:+918766727652" },
               ].map((c) => (
                 <li key={c.label}>
                   <a
