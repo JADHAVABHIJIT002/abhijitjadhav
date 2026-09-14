@@ -77,19 +77,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Abhijit Jadhav | Product Manager | AI/ML & Generative AI" },
+      { title: "Abhijit Jadhav | Professional Portfolio" },
       {
         name: "description",
         content:
-          "Abhijit Jadhav is a Product Manager specializing in AI/ML, Generative AI, product strategy, automation, data-driven products and business impact.",
+          "Abhijit Jadhav — professional portfolio featuring experience, projects, technical skills, achievements, career journey, and professional profile.",
       },
       { name: "author", content: "Abhijit Jadhav" },
       { name: "theme-color", content: "#ffffff" },
       { property: "og:site_name", content: "Abhijit Jadhav" },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://abhijitjadhav.in/profile.png" },
+      {
+        property: "og:image",
+        content: "https://abhijitjadhav.in/abhijit-jadhav-profile-photo.jpg",
+      },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://abhijitjadhav.in/profile.png" },
+      {
+        name: "twitter:image",
+        content: "https://abhijitjadhav.in/abhijit-jadhav-profile-photo.jpg",
+      },
     ],
     links: [
       {
