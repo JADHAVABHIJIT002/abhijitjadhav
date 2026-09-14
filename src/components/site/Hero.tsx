@@ -143,7 +143,7 @@ export function Hero() {
               <div className="portrait-frame relative z-10 aspect-square w-[70%] overflow-hidden rounded-full border border-primary/35 bg-surface p-1.5 shadow-[var(--shadow-lift)]">
                 <div className="size-full overflow-hidden rounded-full bg-secondary">
                   <img
-                    src={portrait.url}
+                    src={"./profile.png"}
                     alt="Portrait of Abhijit Jadhav, Product Manager and AI specialist"
                     width={512}
                     height={512}

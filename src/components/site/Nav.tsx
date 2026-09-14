@@ -64,7 +64,7 @@ export function Nav() {
         <a href="#top" className="group flex items-center gap-3" aria-label="Abhijit Jadhav — home">
           <span className="brand-mark-shell size-11 shrink-0">
             <img
-              src={logo.url}
+              src="./logo.png"
               alt=""
               width={44}
               height={44}

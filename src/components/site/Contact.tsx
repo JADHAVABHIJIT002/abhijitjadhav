@@ -214,7 +214,7 @@ export function Footer() {
         <a href="#top" className="group flex items-center gap-3" aria-label="Abhijit Jadhav — back to top">
           <span className="brand-mark-shell size-14 shrink-0">
             <img
-              src={logo.url}
+              src="./logo.png"
               alt="Abhijit Jadhav logo"
               width={56}
               height={56}
