@@ -58,6 +58,14 @@ export const Route = createFileRoute("/")({
                 addressRegion: "Karnataka",
                 addressCountry: "IN",
               },
+              knowsAbout: [
+                "Product Management",
+                "Artificial Intelligence",
+                "Generative AI",
+                "Machine Learning",
+                "Product Strategy",
+              ],
+              alumniOf: { "@type": "CollegeOrUniversity", name: "IIM Mumbai" },
               sameAs: [
                 "https://www.linkedin.com/in/abhijit-jadhav-133833227",
                 "https://github.com/JADHAVABHIJIT002",

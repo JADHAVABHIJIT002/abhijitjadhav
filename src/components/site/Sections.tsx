@@ -93,7 +93,7 @@ export function About() {
       <SectionHeading
         eyebrow="About"
         title="About Me"
-        subtitle="I'm Abhijit Jadhav, a Product Manager who operates at the intersection of product, data and AI. I identify problems, understand users, apply AI and technology, ship products and measure outcomes — turning complex business challenges into scalable, user-centric solutions."
+        subtitle="I'm Abhijit Jadhav, a Bengaluru-based Product Manager who operates at the intersection of product, data and AI. I identify problems, understand users, apply AI and technology, ship products and measure outcomes — turning complex business challenges into scalable, user-centric solutions."
       />
       <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {capabilities.map((c, i) => (

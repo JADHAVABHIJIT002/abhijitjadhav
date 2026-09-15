@@ -1,5 +1,4 @@
 import { ArrowDown, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
-import { Reveal } from "./Reveal";
 import { ParticleField } from "./Effects";
 import { LINKS, RESUME_URL } from "./data";
 import portrait from "@/assets/abhijit-jadhav.png.asset.json";
@@ -27,103 +26,91 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
 
         <div>
-          <Reveal>
-            <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent/70 px-3.5 py-1.5 text-[12px] font-medium tracking-wide text-accent-foreground">
-              <Sparkles className="size-3.5 shrink-0" aria-hidden="true" />
-              Product Management × AI × Generative AI
-            </p>
-          </Reveal>
+          {/* Hero content is always the first thing visible on load — it must not
+              be wrapped in the scroll-triggered Reveal animation (opacity: 0 until
+              hydration + IntersectionObserver), which was measured to delay LCP
+              past 4s on throttled mobile. Reveal stays in use everywhere else on
+              the page, where it only affects content the user scrolls to. */}
+          <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent/70 px-3.5 py-1.5 text-[12px] font-medium tracking-wide text-accent-foreground">
+            <Sparkles className="size-3.5 shrink-0" aria-hidden="true" />
+            Product Management × AI × Generative AI
+          </p>
 
-          <Reveal delay={80}>
-            <h1 className="mt-7 text-[clamp(2.6rem,7.2vw,5.25rem)] leading-[0.95] font-semibold">
-              Abhijit <span className="text-gradient">Jadhav</span>
-            </h1>
-          </Reveal>
+          <h1 className="mt-7 text-[clamp(2.6rem,7.2vw,5.25rem)] leading-[0.95] font-semibold">
+            Abhijit <span className="text-gradient">Jadhav</span>
+          </h1>
 
-          <Reveal delay={140}>
-            <p className="mt-5 text-[clamp(1.05rem,2.4vw,1.4rem)] font-medium text-foreground">
-              Product Manager
-              <span className="mx-2.5 text-primary/50" aria-hidden="true">
-                /
-              </span>
-              AI/ML &amp; Generative AI Specialist
-            </p>
-          </Reveal>
+          <p className="mt-5 text-[clamp(1.05rem,2.4vw,1.4rem)] font-medium text-foreground">
+            Product Manager
+            <span className="mx-2.5 text-primary/50" aria-hidden="true">
+              /
+            </span>
+            AI/ML &amp; Generative AI Specialist
+          </p>
 
-          <Reveal delay={200}>
-            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base">
-              I build AI-powered products, automation systems and data-driven solutions that solve
-              real business problems.
-            </p>
-          </Reveal>
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base">
+            I build AI-powered products, automation systems and data-driven solutions that solve
+            real business problems.
+          </p>
 
-          <Reveal delay={250}>
-            <dl className="mt-9 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
-              {pillars.map((p) => (
-                <div key={p.k} className="bg-surface px-4 py-4">
-                  <dt className="text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">
-                    {p.k}
-                  </dt>
-                  <dd className="mt-1.5 text-[13px] leading-snug font-medium text-foreground">
-                    {p.v}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
+          <dl className="mt-9 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
+            {pillars.map((p) => (
+              <div key={p.k} className="bg-surface px-4 py-4">
+                <dt className="text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">
+                  {p.k}
+                </dt>
+                <dd className="mt-1.5 text-[13px] leading-snug font-medium text-foreground">
+                  {p.v}
+                </dd>
+              </div>
+            ))}
+          </dl>
 
-          <Reveal delay={300}>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a
-                href="#projects"
-                className="btn-primary group inline-flex items-center gap-2"
-              >
-                Explore My Work
-                <ArrowDown
-                  className="size-4 transition-transform group-hover:translate-y-0.5"
-                  aria-hidden="true"
-                />
-              </a>
-              <a href={RESUME_URL} target="_blank" rel="noreferrer" className="btn-ghost">
-                <Download className="size-4" aria-hidden="true" />
-                Download Resume
-              </a>
-            </div>
-          </Reveal>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#projects" className="btn-primary group inline-flex items-center gap-2">
+              Explore My Work
+              <ArrowDown
+                className="size-4 transition-transform group-hover:translate-y-0.5"
+                aria-hidden="true"
+              />
+            </a>
+            <a href={RESUME_URL} target="_blank" rel="noreferrer" className="btn-ghost">
+              <Download className="size-4" aria-hidden="true" />
+              Download Resume
+            </a>
+          </div>
 
-          <Reveal delay={360}>
-            <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-6">
-              <span className="text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
-                Connect
-              </span>
-              <a
-                href={LINKS.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-              >
-                <Linkedin className="size-4" aria-hidden="true" /> LinkedIn
-              </a>
-              <a
-                href={LINKS.github}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-              >
-                <Github className="size-4" aria-hidden="true" /> GitHub
-              </a>
-              <a
-                href={`mailto:${LINKS.email}`}
-                className="inline-flex min-w-0 items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-              >
-                <Mail className="size-4 shrink-0" aria-hidden="true" />
-                <span className="truncate">{LINKS.email}</span>
-              </a>
-            </div>
-          </Reveal>
+          <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-6">
+            <span className="text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+              Connect
+            </span>
+            <a
+              href={LINKS.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Linkedin className="size-4" aria-hidden="true" /> LinkedIn
+            </a>
+            <a
+              href={LINKS.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Github className="size-4" aria-hidden="true" /> GitHub
+            </a>
+            <a
+              href={`mailto:${LINKS.email}`}
+              className="inline-flex min-w-0 items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Mail className="size-4 shrink-0" aria-hidden="true" />
+              <span className="truncate">{LINKS.email}</span>
+            </a>
+          </div>
         </div>
 
-        <Reveal delay={180} className="relative order-first mx-auto w-full max-w-[30rem] lg:order-none lg:max-w-none">
+        <div className="relative order-first mx-auto w-full max-w-[30rem] lg:order-none lg:max-w-none">
           <figure className="portrait-stage group mx-auto flex w-full flex-col items-center">
             <div className="portrait-orbit relative grid aspect-square w-[min(72vw,17.5rem)] place-items-center sm:w-[min(68vw,22rem)] lg:w-[min(37vw,31rem)]">
               <div aria-hidden="true" className="portrait-aura absolute inset-[12%] rounded-full" />
@@ -174,7 +161,7 @@ export function Hero() {
               ))}
             </dl>
           </figure>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
